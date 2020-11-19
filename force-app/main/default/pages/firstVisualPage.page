@@ -1,6 +1,20 @@
-<apex:page controller="firstApexClassForVisualPage">  
+<apex:page controller="secondApexClass">  
 <!-- Begin Default Content REMOVE THIS -->
 <h1>Congratulations</h1>
 This is your new Page {!greeting}
+
+<apex:form>
+    <apex:commandbutton value="click" rerender="one" action="{!addition}"/>
+    <apex:commandbutton value="click" rerender="two" action="{!addition}"/>
+    
+    <apex:outputlabel id="one"> 
+      {!a} 
+    </apex:outputlabel>
+
+    <apex:outputlabel id="two"> 
+      {!a} 
+    </apex:outputlabel>
+</apex:form>
+<p>{!a}</p>
 <!-- End Default Content REMOVE THIS -->
 </apex:page>
