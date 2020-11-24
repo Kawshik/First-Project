@@ -1,0 +1,16 @@
+<apex:page controller="SoqlQueryOnReservations">
+    <apex:pageBlock title="Total Amount: {!totalBillAmmount}">
+        <apex:pageBlockTable value="{!reservations}" var="item">
+            <apex:column>{!item.reservationId}</apex:column>
+            <apex:column>{!item.customerName}</apex:column>
+            <apex:column>{!item.totalBill}</apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+<!-- 
+    <div>Customer Name: {!customer.Name}</div>   
+    <div>Customer Facility: {!facility.Name}</div>
+    <div>Customer Vehicle: {!vehicle.Name}</div>
+    <div>Total Amount: {!total}</div> -->
+
+
+</apex:page>
