@@ -7,8 +7,8 @@
 					<template for:each={customerDetails} for:item="customerDetail">
 						<lightning-layout-item key={customerDetail.Name} size="3" class="slds-var-p-around_x-small">
 							<!-- Start customer tile -->
-							<lightning-card title={customerDetails.Name}>
-								<div class="slds-var-p-horizontal_small ">
+							<lightning-card title={customerDetail.Name}>
+								<div class="slds-var-p-horizontal_small">
 									<div class="slds-media">
 										<div class="slds-media__body">
 											<p class="slds-var-m-bottom_xx-small">{customerDetail.Address__c}</p>
