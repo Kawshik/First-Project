@@ -1,36 +1,47 @@
 <template>
-    <lightning-card title="Customer Details">
+    <!-- <lightning-card title="Customer Details">
 		<div class="slds-card__body_inner">
-			<!-- Start customer list -->
 			<template if:true={customerDetails}>
 				<lightning-layout pull-to-boundary="small">
 					<template for:each={customerDetails} for:item="customerDetail">
 						<lightning-layout-item key={customerDetail.Name} size="3" class="slds-var-p-around_x-small">
-							<!-- Start customer tile -->
 							<lightning-card title={customerDetail.Name}>
 								<div class="slds-var-p-horizontal_small">
 									<div class="slds-media">
 										<div class="slds-media__body">
 											<p class="slds-var-m-bottom_xx-small">{customerDetail.Address__c}</p>
 											<p class="slds-var-m-bottom_xx-small">{customerDetail.Age__c} years old</p>
-											<p class="slds-var-m-bottom_xx-small">{customerDetail.Date_of_Joining__c} cm</p>
-											<p class="slds-var-m-bottom_xx-small">{customerDetail.Leaving_Amount__c} Kg</p>
+											<p class="slds-var-m-bottom_xx-small">{customerDetail.Date_of_Joining__c}</p>
+											<p class="slds-var-m-bottom_xx-small">$ {customerDetail.Leaving_Amount__c}</p>
 										</div>
 									</div>
 								</div>
 							</lightning-card>
-							<!-- End customer tile -->
 						</lightning-layout-item>
 					</template>
 				</lightning-layout>
 			</template>
-			<!-- End customer list -->
-			<!-- Data failed to load -->
 			<template if:true={error}>
 				<div class="slds-text-color_error">
 					An error occurred while loading the Customers list
 				</div>
 			</template>
 		</div>
-	</lightning-card>
+	</lightning-card> -->
+
+
+	<lightning-card title="Customer Details"></lightning-card>
+		<template if:true={customerDetails}>
+			<template for:each={customerDetails} for:item="customerDetail">
+				<lightning-layout-item key={customerDetail.Name}>
+					<lightning-card title={customerDetail.Name}>
+						<p style="padding: 5px; padding-left:10px;">Address: {customerDetail.Address__c}</p>
+						<p style="padding: 5px; padding-left:10px;">Age: {customerDetail.Age__c} years old</p>
+						<p style="padding: 5px; padding-left:10px;">Date: {customerDetail.Date_of_Joining__c}</p>
+						<p style="padding: 5px; padding-left:10px;">Leaving Amount: ${customerDetail.Leaving_Amount__c}</p>
+						<p style="padding: 5px; padding-left:10px;">Favourite Fruit: {customerDetail.Favourite_Fruit__c}</p>
+					</lightning-card>
+				</lightning-layout-item>
+			</template>
+		</template>
 </template>

@@ -21,7 +21,7 @@ public with sharing class SoqlQueryOnReservations {
     }
 
     public void populateReservations(){
-        List<Reservation__c> queriedReservation = [SELECT Name, Customer_Name__c, Facility__c, Pick_up_Vehicle__c FROM Reservation__c];
+        List<Reservation__c> queriedReservation = [SELECT Name, Customer_Name__c, Facility__c, Pick_up_Vehicle__c FROM Reservation__c ORDER BY Name];
         for (Reservation__c r : queriedReservation) {
             Customer_Detail__c customer = searchCustomerById(r.Customer_Name__c);
             Facility__c facility = searchFacilityById(r.Facility__c);
@@ -32,8 +32,6 @@ public with sharing class SoqlQueryOnReservations {
             this.reservations.add(new Reservations(r.Name,customer.Name,total));
         }    
     }
-
-
 
     public Customer_Detail__c searchCustomerById(String customerId){
         return [SELECT Address__c,Age__c,Date_of_Joining__c,Id,Leaving_Amount__c,Name FROM Customer_Detail__c WHERE Id = :customerId];
